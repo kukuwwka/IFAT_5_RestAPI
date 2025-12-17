@@ -1,6 +1,6 @@
-/.idea
-target/
-build/
-*.iml
-*.xml
-/.allure
+      /.idea
+      target/
+      build/
+      *.iml
+      *.xml
+      /.allure

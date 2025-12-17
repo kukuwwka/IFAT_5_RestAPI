@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema/#",
+  "title": "RateResponse",
+  "type": "object",
+
+  "required": ["firstname", "totalprice", "bookingdates"],
+
+  "properties": {
+    "firstname": {
+      "type": "string"
+
+    },
+
+    "totalprice": {
+      "type": "integer"
+
+    },
+
+    "bookingdates": {
+      "type": "object",
+      "required": ["checkin"]
+
+    }
+  }
+}
