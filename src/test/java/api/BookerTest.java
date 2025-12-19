@@ -1,5 +1,6 @@
 package api;
 
+import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import steps.RateStep;
 import validators.RateValidators;
@@ -10,14 +11,16 @@ public class BookerTest {
 
     @Test
     public void checkResponse() {
-        String response = steps.getResponse();
+        Response response = steps.getResponse();
 
-        validators.validateDateRegex(response);
+//        validators.validateDateRegex(response);
 
         validators.validateKeys();
 
         validators.validateHeaders();
 
         validators.validateSchema();
+
+        validators.validateCheckingDateFormat(response);
     }
 }

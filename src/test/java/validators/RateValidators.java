@@ -1,9 +1,7 @@
 package validators;
 
 import api.ApiTest;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
@@ -38,10 +36,17 @@ public class RateValidators extends ApiTest {
                 .body("bookingdates.checkin", equalTo("2018-01-01"));
     }
 
-    public void validateDateRegex(String responseBody) {
+/*    public void validateDateRegex(String responseBody) {
         String regex = "[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(responseBody);
         assertTrue(matcher.find(), "");
+    }*/
+
+    public void validateCheckingDateFormat(Response response) {
+        String regex = "[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])";
+        response
+                .then()
+                .body("bookingdates.checkin", matchesPattern(regex));
     }
 }

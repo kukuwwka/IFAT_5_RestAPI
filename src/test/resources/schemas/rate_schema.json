@@ -18,8 +18,13 @@
 
     "bookingdates": {
       "type": "object",
-      "required": ["checkin"]
-
+      "properties": {
+        "checkin": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": ["checkin", "checkout"]
     }
   }
 }

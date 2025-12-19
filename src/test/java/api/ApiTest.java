@@ -2,6 +2,7 @@ package api;
 
 import org.testng.annotations.Test;
 
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,7 +12,7 @@ import static org.testng.Assert.assertTrue;
 
 public class ApiTest {
     public String baseUrl = "https://restful-booker.herokuapp.com/booking/";
-    public int id = 303;
+    public int id = 3307;
 
     @Test
     public void checkOnlinerRates() {

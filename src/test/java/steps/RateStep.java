@@ -1,11 +1,12 @@
 package steps;
 
 import api.ApiTest;
+import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 
 public class RateStep extends ApiTest {
-    public String getResponse() {
+    public Response getResponse() {
         return given()
                 .log().all()
                 .when()
@@ -17,6 +18,6 @@ public class RateStep extends ApiTest {
                 .body("totalprice", equalTo(111))
                 .body("bookingdates.checkin", equalTo("2018-01-01"))*/
                 .extract()
-                .body().asString();
+                .response();
     }
 }
